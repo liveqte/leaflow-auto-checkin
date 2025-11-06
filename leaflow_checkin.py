@@ -632,7 +632,8 @@ def main():
             success_count = sum(1 for _, success, _, _ in detailed_results if success)
             logger.warning(f"⚠️ 部分账号签到失败: {success_count}/{len(detailed_results)} 成功")
             # 即使有失败，也不退出错误状态，因为可能部分成功
-            exit(0)
+            # 补充:部分成功就是失败还是为1
+            exit(1)
             
     except Exception as e:
         logger.error(f"❌ 脚本执行出错: {e}")
@@ -640,3 +641,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
